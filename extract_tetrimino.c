@@ -6,7 +6,7 @@
 /*   By: ibotnaru <ibotnaru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 16:36:00 by ibotnaru          #+#    #+#             */
-/*   Updated: 2019/04/02 23:51:18 by ibotnaru         ###   ########.fr       */
+/*   Updated: 2019/04/03 18:45:38 by ibotnaru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,5 @@ char        *extract_tetrimino(char *file_name)
         ft_putstr("Error\n");                                   //if check_if_valid fails
         return (ERROR);                                         //finish the program here
     } 
+    return (tetr_stor);                                         //everything is valid, we return the tetrimino
 }

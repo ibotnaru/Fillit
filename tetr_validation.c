@@ -6,7 +6,7 @@
 /*   By: ibotnaru <ibotnaru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 19:08:21 by ibotnaru          #+#    #+#             */
-/*   Updated: 2019/04/03 00:08:39 by ibotnaru         ###   ########.fr       */
+/*   Updated: 2019/04/04 00:57:58 by ibotnaru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,9 @@ int     not_valid_tetrimino(char *tetr_stor)
     if (check_if_valid_num(total) != OK)
         return (ERROR);
     how_many_tetr = total->hash / 4;                                            //because we have four '#' in one tetrimino 
-    
+    if (check_if_valid_map(tetr_stor))
+        return (ERROR);
+    if (check_neighbors(tetr_stor))
+        return (ERROR);
+    return (OK);
 }
