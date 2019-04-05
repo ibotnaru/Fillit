@@ -6,7 +6,7 @@
 /*   By: ibotnaru <ibotnaru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 13:31:40 by ibotnaru          #+#    #+#             */
-/*   Updated: 2019/04/03 00:02:53 by ibotnaru         ###   ########.fr       */
+/*   Updated: 2019/04/04 15:55:24 by ibotnaru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,18 @@
 # define     OK       0
 # define     ERROR    -1
 
+//this is the structure for STEP 5
 typedef struct s_number_of_symbols{
     int hash;
     int dot;
     int new_line;
 }   t_number_of_symbols;
+
+//this is the structure for STEP 11
+typedef struct  s_tetr{
+    int     x[4];
+    int     y[4];
+    char    name_for_tetr;   
+}   t_tetr;
 
 #endif

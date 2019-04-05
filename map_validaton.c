@@ -6,7 +6,7 @@
 /*   By: ibotnaru <ibotnaru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 16:11:31 by ibotnaru          #+#    #+#             */
-/*   Updated: 2019/04/04 01:16:11 by ibotnaru         ###   ########.fr       */
+/*   Updated: 2019/04/04 13:45:53 by ibotnaru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,38 @@ int     check_neighbors(char **tetr_stor)
    int      y;
    int      num_of_neighbors;
    int      num_of_hashes;
+   int      counter;
 
    x = 0;
    y = 0;
    num_of_neighbors = 0;
    num_of_hashes = 0;
+   counter = 0;
    while (tetr_stor[y][x] != '\0')
    {
        x = 0;
-       while (tetr_stor[y][x] != '\n')
+       num_of_hashes = 0;
+       num_of_neighbors = 0;
+       counter = 0;
+       while (counter < 21)                                                                              //checking the tetrimino one by one
        {
-           if (tetr_stor[y][x] == '#')
-           {
-               num_of_hashes++;
-               num_of_neighbors += valid_neighbors(tetr_stor, y, x);
-           }
-           x++;
+           while (tetr_stor[y][x] != '\n')
+            {
+                if (tetr_stor[y][x] == '#')
+                {
+                    num_of_hashes++;
+                    num_of_neighbors += valid_neighbors(tetr_stor, y, x);
+                }
+                x++;
+            }
+            y++;
+            counter++;
        }
-       y++;
-   }
-   if (num_of_hashes % 4 != 0)
+       //<<<<<<<<<<<<<<<<<<<<<<<STEP 10>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+       //after finding all neighbors of tetrimino we check if their number is valid (one by one tetrimino)
+       if (num_of_neighbors < 6 && num_of_hashes == 4)                                              //one tetrimino(valid) can have only 6 or 8 neighbors
         return (ERROR);
+   }
    return (OK);
 }
 //<<<<<<<<<<<<<<<<<<<<<<<STEP 7>>>>>>>>>>>>>>>>>>>>>>>>>>>>
